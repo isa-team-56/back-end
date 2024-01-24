@@ -9,8 +9,8 @@ namespace Explorer.Stakeholders.Core.UseCases
     {
         private readonly string _smtpServer = "smtp.gmail.com";
         private readonly int _port = 587;
-        private readonly string _email = "3ptravelserbia@gmail.com";
-        private readonly string _password = "hneoqsqhudotiwoj";
+        private readonly string _email = "isa.team56@gmail.com";
+        private readonly string _password = "crcf sdjs dstl nsxa";
 
         public void SendActivationEmail(string recipientEmail, string activationLink)
         {
@@ -43,9 +43,9 @@ namespace Explorer.Stakeholders.Core.UseCases
         {
             string link = $"http://localhost:4200/change-password?token={resetPasswordLink}";
             var mailBodyBuilder = new StringBuilder("Use this link:<br>");
-            mailBodyBuilder.Append($"{link} to change credentials for your 3P account.<br>");
+            mailBodyBuilder.Append($"{link} to change credentials for your account.<br>");
             var emailBody = mailBodyBuilder.ToString();
-            var emailSubject = "Password reset for 3P";
+            var emailSubject = "Password reset ";
             SendEmail(recipientEmail, emailSubject, emailBody);
         }
         private void SendEmail(string recipientEmail, string emailSubject, string emailBody)
