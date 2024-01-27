@@ -11,5 +11,10 @@ public class PersonDto
     public string Quote { get; init; }
     public int Xp { get; init; }
     public int Level { get; init; }
+    public string City { get; set; }
+    public string Country { get; set; }
+    public string Phone { get; set; }
+    public string Profession { get; set; }
+    public string FirmName { get; set; }
 
 }

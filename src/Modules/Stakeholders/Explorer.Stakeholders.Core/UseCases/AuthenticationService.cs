@@ -38,14 +38,14 @@ public class AuthenticationService : IAuthenticationService
         }
         return _tokenGenerator.GenerateAccessToken(user, personId);
     }
-    public Result<AuthenticationTokensDto> RegisterTourist(AccountRegistrationDto account)
+    public Result<AuthenticationTokensDto> RegisterStaff(AccountRegistrationDto account)
     {
         if (_userRepository.Exists(account.Username)) return Result.Fail(FailureCode.NonUniqueUsername);
 
         try
         {
             var user = _userRepository.Create(new User(account.Username, account.Password, UserRole.Staff, true, account.Email, new(), new(), isProfileActivated: false));
-            var person = _personRepository.Create(new Person(user.Id, account.Name, account.Surname, " ", " ", " "));
+            var person = _personRepository.Create(new Person(user.Id, account.Name, account.Surname, " ", " ", " ",account.City,account.Country,account.Phone,account.Profession,account.FirmName));
 
             return _tokenGenerator.GenerateAccessToken(user, person.Id);
         }
