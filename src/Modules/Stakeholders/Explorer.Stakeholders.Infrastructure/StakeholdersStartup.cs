@@ -35,13 +35,14 @@ public static class StakeholdersStartup
         services.AddScoped<IUserNotificationService, UserNotificationService>();
         services.AddScoped<IEmailService, EmailService>();
         services.AddScoped<IInternalPersonService, InternalPersonService>();
+        services.AddScoped<IEquipmentService, EquipmentService>();
 
     }
 
     private static void SetupInfrastructure(IServiceCollection services)
     {
         services.AddScoped(typeof(ICrudRepository<Person>), typeof(CrudDatabaseRepository<Person, StakeholdersContext>));
-
+        services.AddScoped(typeof(ICrudRepository<Equipment>), typeof(CrudDatabaseRepository<Equipment, StakeholdersContext>));
         services.AddScoped<IUserRepository, UserDatabaseRepository>();
         services.AddScoped<IPersonRepository, PersonRepository>();
         services.AddScoped(typeof(ICrudRepository<User>), typeof(CrudDatabaseRepository<User, StakeholdersContext>));
