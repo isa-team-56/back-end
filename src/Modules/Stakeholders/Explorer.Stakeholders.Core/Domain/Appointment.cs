@@ -10,24 +10,24 @@ namespace Explorer.Stakeholders.Core.Domain
     public class Appointment : Entity
     {
         public DateTime Start { get; init; }
-        public DateTime End { get; init; }
-
+        public int Duration { get; init; }
+        public int CompanyId { get; init; }
         public string AdminName { get; init; }
         public string AdminSurname { get; init; }
+
         public bool IsReserved { get; init; }
+        
 
-        public int? StaffId { get; init; }
-
-
-        public Appointment(DateTime start, DateTime end,string adminName,string adminSurname,bool isReserved, int? staffId)
+        public Appointment(DateTime start, int duration,int companyId,string adminName,string adminSurname,bool isReserved)
         {
             
             Start = start;
-            End = end;
+            Duration = duration;
+            CompanyId = companyId;
             AdminName = adminName;
             AdminSurname = adminSurname;
             IsReserved = isReserved;
-            StaffId = staffId;
+           
         }
     }
 }
