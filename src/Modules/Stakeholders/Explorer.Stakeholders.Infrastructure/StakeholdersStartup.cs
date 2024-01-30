@@ -36,6 +36,7 @@ public static class StakeholdersStartup
         services.AddScoped<IEmailService, EmailService>();
         services.AddScoped<IInternalPersonService, InternalPersonService>();
         services.AddScoped<IEquipmentService, EquipmentService>();
+        services.AddScoped<ICompanyService, CompanyService>();
 
     }
 
@@ -43,6 +44,9 @@ public static class StakeholdersStartup
     {
         services.AddScoped(typeof(ICrudRepository<Person>), typeof(CrudDatabaseRepository<Person, StakeholdersContext>));
         services.AddScoped(typeof(ICrudRepository<Equipment>), typeof(CrudDatabaseRepository<Equipment, StakeholdersContext>));
+
+        services.AddScoped(typeof(ICrudRepository<Company>), typeof(CrudDatabaseRepository<Company, StakeholdersContext>));
+
         services.AddScoped<IUserRepository, UserDatabaseRepository>();
         services.AddScoped<IPersonRepository, PersonRepository>();
         services.AddScoped(typeof(ICrudRepository<User>), typeof(CrudDatabaseRepository<User, StakeholdersContext>));

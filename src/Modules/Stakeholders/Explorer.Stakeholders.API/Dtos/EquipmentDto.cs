@@ -10,6 +10,6 @@ public class EquipmentDto
 
     public Type Type { get; set; }
     public int Price { get; set; }
-    public int CompanyId { get; set; }
+    public List<int> CompanyIds { get; set; }
 
 }

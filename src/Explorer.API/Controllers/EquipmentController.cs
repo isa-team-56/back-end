@@ -17,6 +17,7 @@ namespace Explorer.API.Controllers
             _equipmentService = equipmentService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public ActionResult<PagedResult<EquipmentDto>> GetAll([FromQuery] int page, [FromQuery] int pageSize)
         {

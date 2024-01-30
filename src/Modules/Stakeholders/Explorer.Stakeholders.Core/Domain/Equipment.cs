@@ -13,17 +13,18 @@ public class Equipment : Entity
 
     public int Price { get; init; }
 
-    public int CompanyId { get; init; }
+   
+    public List<int> CompanyIds { get; init; }
 
 
-    public Equipment(string name, string description,Type type,int price,int companyId)
+    public Equipment(string name, string description,Type type,int price,List<int> companyIds)
     {
         if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Invalid Name.");
         Name = name;
         Description = description;
         Type = type;
         Price = price;
-        CompanyId = companyId;
+        CompanyIds = companyIds ?? new List<int>();
 
     }
 }
