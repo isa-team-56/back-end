@@ -18,7 +18,7 @@ namespace Explorer.API.Controllers
             _appointmentService = appointmentService;
         }
 
-        
+
         [HttpGet]
         public ActionResult<PagedResult<AppointmentDto>> GetAll([FromQuery] int page, [FromQuery] int pageSize)
         {
@@ -47,6 +47,19 @@ namespace Explorer.API.Controllers
             return CreateResponse(result);
         }
 
-       
+        [HttpGet("reserveAppointment/{id}")]
+        public ActionResult ChangeReservedStatus(int id)
+        {
+            return CreateResponse(_appointmentService.ChangeReservedStatus(id));
+
+
+        }
+
+        [HttpPut("getAppointmentsByCompany")]
+        public ActionResult<AppointmentDto> GetAppointmentsByCompany([FromBody] CompanyDto company)
+        {
+            return CreateResponse(_appointmentService.GetAppointmentsByCompany(company));
+        }
+
     }
 }

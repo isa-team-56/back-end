@@ -15,7 +15,10 @@ public interface IAppointmentService
     Result<AppointmentDto> Create(AppointmentDto appointment);
     Result<AppointmentDto> Update(AppointmentDto appointment);
     Result Delete(int id);
-    
+    Result<AppointmentDto> ChangeReservedStatus(int id);
+    Result<List<AppointmentDto>> GetAppointmentsByCompany(CompanyDto company);
+
+
 }
 
 

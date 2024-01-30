@@ -15,7 +15,7 @@ namespace Explorer.Stakeholders.Core.Domain
         public string AdminName { get; init; }
         public string AdminSurname { get; init; }
 
-        public bool IsReserved { get; init; }
+        public bool IsReserved { get; set; }
         
 
         public Appointment(DateTime start, int duration,int companyId,string adminName,string adminSurname,bool isReserved)
