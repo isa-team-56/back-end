@@ -48,6 +48,9 @@ public class ReservationService : CrudService<ReservationDto, Reservation>, IRes
         return MapToDto(reservationDb);
     }
 
+    
+
+
     /*
     public Result<List<AppointmentDto>> GetAppointmentsByCompany1(CompanyDto company, UserDto user)
     {

@@ -13,7 +13,8 @@ namespace Explorer.Stakeholders.API.Dtos;
      public int UserId { get; set; }
 
      public string State { get; set; }
-    }
+     public int EquipmentId { get; set; }
+}
 
 
    

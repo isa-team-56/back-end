@@ -30,7 +30,9 @@ namespace Explorer.API.Controllers
         [HttpPost]
         public ActionResult<ReservationDto> Create([FromBody] ReservationDto reservation)
         {
+            Console.WriteLine($"Received appointmentId: {reservation.ReservedAppointment}");
             var result = _reservationService.Create(reservation);
+
             return CreateResponse(result);
         }
 
