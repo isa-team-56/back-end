@@ -25,6 +25,7 @@ namespace Explorer.API.Controllers
             return CreateResponse(result);
         }
 
+        [Authorize(Policy = "administratorcPolicy")]
         [HttpPost]
         public ActionResult<EquipmentDto> Create([FromBody] EquipmentDto equipment)
         {
@@ -32,6 +33,7 @@ namespace Explorer.API.Controllers
             return CreateResponse(result);
         }
 
+        [Authorize(Policy = "administratorcPolicy")]
         [HttpPut("{id:int}")]
         public ActionResult<EquipmentDto> Update([FromBody] EquipmentDto equipment)
         {
@@ -39,6 +41,7 @@ namespace Explorer.API.Controllers
             return CreateResponse(result);
         }
 
+        [Authorize(Policy = "administratorcPolicy")]
         [HttpDelete("{id:int}")]
         public ActionResult Delete(int id)
         {

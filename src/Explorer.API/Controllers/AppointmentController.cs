@@ -26,6 +26,7 @@ namespace Explorer.API.Controllers
             return CreateResponse(result);
         }
 
+        [Authorize(Policy = "administratorcPolicy")]
         [HttpPost]
         public ActionResult<AppointmentDto> Create([FromBody] AppointmentDto appointment)
         {
@@ -33,6 +34,7 @@ namespace Explorer.API.Controllers
             return CreateResponse(result);
         }
 
+        [Authorize(Policy = "administratorcPolicy")]
         [HttpPut("{id:int}")]
         public ActionResult<AppointmentDto> Update([FromBody] AppointmentDto appointment)
         {
@@ -40,6 +42,7 @@ namespace Explorer.API.Controllers
             return CreateResponse(result);
         }
 
+        [Authorize(Policy = "administratorcPolicy")]
         [HttpDelete("{id:int}")]
         public ActionResult Delete(int id)
         {
@@ -47,6 +50,7 @@ namespace Explorer.API.Controllers
             return CreateResponse(result);
         }
 
+        [Authorize(Policy = "staffPolicy")]
         [HttpGet("reserveAppointment/{id}")]
         public ActionResult ChangeReservedStatus(int id)
         {
