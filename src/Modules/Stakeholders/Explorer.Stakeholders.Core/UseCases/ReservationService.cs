@@ -64,9 +64,9 @@ public class ReservationService : CrudService<ReservationDto, Reservation>, IRes
 
 
 
-    public void SendReservationConfirmationEmail(string recipientEmail, ReservationDto reservation)
+    public void SendReservationConfirmationEmail(string recipientEmail)
     {
-        var reservationDomain = MapToDomain(reservation);
+        //var reservationDomain = MapToDomain(reservation);
         string localImagePath = "C:\\Users\\Katarina\\Desktop\\isa7days\\qr.png";
 
         using (MailMessage mail = new MailMessage())
@@ -80,7 +80,8 @@ public class ReservationService : CrudService<ReservationDto, Reservation>, IRes
             mail.Attachments.Add(attachment);
 
             // Include a message and reservation details in the email body
-            mail.Body = $"Your reservation details:\n{JsonConvert.SerializeObject(reservation)}";
+            // mail.Body = $"Your reservation details:\n{JsonConvert.SerializeObject(reservation)}";
+             mail.Body = $"Your reservation details:";
             mail.IsBodyHtml = true;
 
             using (SmtpClient smtp = new SmtpClient(_smtpServer, _port))

@@ -27,6 +27,7 @@ namespace Explorer.API.Controllers
             return CreateResponse(result);
         }
 
+        [Authorize(Policy = "staffPolicy")]
         [HttpPost]
         public ActionResult<ReservationDto> Create([FromBody] ReservationDto reservation)
         {
@@ -49,7 +50,7 @@ namespace Explorer.API.Controllers
             var result = _reservationService.Delete(id);
             return CreateResponse(result);
         }
-
+        [Authorize(Policy = "staffPolicy")]
         [HttpGet("cancelReservation/{id}")]
         public ActionResult CancelReservation(int id)
         {
@@ -59,11 +60,11 @@ namespace Explorer.API.Controllers
         }
 
         [HttpPost("reservationConfirmation")]
-        public ActionResult<bool> SendReservationConfirmationEmail([FromQuery] string email, [FromBody] ReservationDto reservation)
+        public ActionResult<bool> SendReservationConfirmationEmail([FromQuery] string email)
         {
             try
             {
-                _reservationService.SendReservationConfirmationEmail(email, reservation);
+                _reservationService.SendReservationConfirmationEmail(email);
                 return true;
             }
             catch (Exception ex)

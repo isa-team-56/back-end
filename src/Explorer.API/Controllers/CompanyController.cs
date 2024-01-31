@@ -25,6 +25,7 @@ namespace Explorer.API.Controllers
             return CreateResponse(result);
         }
 
+        [Authorize(Policy = "administratorsPolicy")]
         [HttpPost]
         public ActionResult<CompanyDto> Create([FromBody] CompanyDto company)
         {
@@ -32,13 +33,14 @@ namespace Explorer.API.Controllers
             return CreateResponse(result);
         }
 
+        [Authorize(Policy = "administratorcPolicy")]
         [HttpPut("{id:int}")]
         public ActionResult<CompanyDto> Update([FromBody] CompanyDto company)
         {
             var result = _companyService.Update(company);
             return CreateResponse(result);
         }
-
+        [Authorize(Policy = "administratorsPolicy")]
         [HttpDelete("{id:int}")]
         public ActionResult Delete(int id)
         {
