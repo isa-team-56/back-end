@@ -2,6 +2,15 @@
 using System.Net.Mail;
 using System.Text;
 using Explorer.Stakeholders.API.Public;
+using Explorer.Stakeholders.Core.Domain;
+using Newtonsoft.Json;
+using System.Drawing;
+using System;
+using ZXing;
+using ZXing.Common;
+using ZXing.QrCode;
+using ZXing.QrCode.Internal;
+using Explorer.Stakeholders.API.Dtos;
 
 namespace Explorer.Stakeholders.Core.UseCases
 {
@@ -11,6 +20,7 @@ namespace Explorer.Stakeholders.Core.UseCases
         private readonly int _port = 587;
         private readonly string _email = "isa.team56@gmail.com";
         private readonly string _password = "crcf sdjs dstl nsxa";
+
 
         public void SendActivationEmail(string recipientEmail, string activationLink)
         {
@@ -74,5 +84,9 @@ namespace Explorer.Stakeholders.Core.UseCases
                 }
             }
         }
+        
+
+
+
     }
 }

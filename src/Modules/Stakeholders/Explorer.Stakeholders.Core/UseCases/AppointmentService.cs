@@ -69,6 +69,8 @@ public class AppointmentService : CrudService<AppointmentDto, Appointment>, IApp
         return resultAppointments;
     }
 
+   
+
 
 
 

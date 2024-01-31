@@ -9,16 +9,18 @@ namespace Explorer.Stakeholders.Core.Domain
 {
     public class Appointment : Entity
     {
-        public DateTime Start { get; init; }
+        public DateTime Start { get; private set; }
         public int Duration { get; set; }
         public int CompanyId { get; init; }
         public string AdminName { get; init; }
         public string AdminSurname { get; init; }
 
         public bool IsReserved { get; set; }
-        
+        public int AdminId { get; private set; }
 
-        public Appointment(DateTime start, int duration,int companyId,string adminName,string adminSurname,bool isReserved)
+
+
+        public Appointment(DateTime start, int duration,int companyId,string adminName,string adminSurname,bool isReserved,int adminId)
         {
             
             Start = start;
@@ -27,6 +29,8 @@ namespace Explorer.Stakeholders.Core.Domain
             AdminName = adminName;
             AdminSurname = adminSurname;
             IsReserved = isReserved;
+            AdminId = adminId;
+           
            
         }
     }

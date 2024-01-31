@@ -58,6 +58,22 @@ namespace Explorer.API.Controllers
 
         }
 
+        [HttpPost("reservationConfirmation")]
+        public ActionResult<bool> SendReservationConfirmationEmail([FromQuery] string email, [FromBody] ReservationDto reservation)
+        {
+            try
+            {
+                _reservationService.SendReservationConfirmationEmail(email, reservation);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+        }
+
+
 
     }
 }

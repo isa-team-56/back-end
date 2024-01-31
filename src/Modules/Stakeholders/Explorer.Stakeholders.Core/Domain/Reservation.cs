@@ -5,22 +5,24 @@ namespace Explorer.Stakeholders.Core.Domain
 {
     public class Reservation : Entity
     {
-        public int ReservedAppointment { get; private set; }
+        public int ReservedAppointment { get;  set; }
        
 
-        public int UserId { get; private set; }
+        public int UserId { get; set; }
         public string State { get; set; }
 
         public int EquipmentId { get; set; }
+        public int CompanyId { get; set; }
 
 
 
-        public Reservation(int reservedAppointment, int userId, string state,int equipmentId)
+        public Reservation(int reservedAppointment, int userId, string state,int equipmentId,int companyId)
         {
             ReservedAppointment = reservedAppointment;
             UserId = userId;
             SetState(state);
             EquipmentId = equipmentId;
+            CompanyId = companyId;
         }
 
         public void SetState(string state)

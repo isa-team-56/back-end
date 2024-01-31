@@ -12,6 +12,7 @@ namespace Explorer.Stakeholders.API.Public;
 public interface IAppointmentService
 {
     Result<PagedResult<AppointmentDto>> GetPaged(int page, int pageSize);
+   
     Result<AppointmentDto> Create(AppointmentDto appointment);
     Result<AppointmentDto> Update(AppointmentDto appointment);
     Result Delete(int id);

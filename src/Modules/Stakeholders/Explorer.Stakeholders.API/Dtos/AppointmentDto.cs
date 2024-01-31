@@ -17,4 +17,6 @@ public class AppointmentDto
     public string AdminSurname { get; set; }
 
     public bool IsReserved { get; set; }
+    public int AdminId { get; set; }
+
 }

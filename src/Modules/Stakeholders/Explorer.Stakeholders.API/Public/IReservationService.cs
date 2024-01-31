@@ -16,7 +16,8 @@ public interface IReservationService
     Result<ReservationDto> Update(ReservationDto reservation);
     Result Delete(int id);
     Result<ReservationDto> CancelReservation(int id);
-   // Result<List<int>> GetCanceledAppointmentsByUserId(int userId);
+    // Result<List<int>> GetCanceledAppointmentsByUserId(int userId);
+    public void SendReservationConfirmationEmail(string recipientEmail, ReservationDto reservation);
 
 }
 

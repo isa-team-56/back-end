@@ -14,6 +14,7 @@ namespace Explorer.Stakeholders.API.Dtos;
 
      public string State { get; set; }
      public int EquipmentId { get; set; }
+    public int CompanyId { get; set; }
 }
 
 
