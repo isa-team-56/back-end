@@ -1,6 +1,7 @@
 ﻿using Explorer.BuildingBlocks.Core.UseCases;
 using Explorer.Stakeholders.API.Dtos;
 using Explorer.Stakeholders.API.Public;
+using Explorer.Stakeholders.Core.UseCases;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -62,7 +63,6 @@ namespace Explorer.API.Controllers
             var result = _userFollowerService.Unfollow(userId, userToUnfollowId);
             return CreateResponse(result);
         }
-
        
     }
 }

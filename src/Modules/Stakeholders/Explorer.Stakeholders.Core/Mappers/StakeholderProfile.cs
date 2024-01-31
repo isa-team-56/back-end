@@ -17,5 +17,6 @@ public class StakeholderProfile : Profile
         CreateMap<EquipmentDto, Equipment>().ReverseMap();
         CreateMap<CompanyDto, Company>().ReverseMap();
         CreateMap<AppointmentDto, Appointment>().ReverseMap();
+        CreateMap<ReservationDto, Reservation>().ReverseMap();
     }
 }

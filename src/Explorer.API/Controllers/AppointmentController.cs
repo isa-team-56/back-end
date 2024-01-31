@@ -60,6 +60,9 @@ namespace Explorer.API.Controllers
         {
             return CreateResponse(_appointmentService.GetAppointmentsByCompany(company));
         }
+        
+
+
 
     }
 }

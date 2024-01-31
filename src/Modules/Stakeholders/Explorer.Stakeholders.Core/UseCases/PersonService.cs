@@ -33,5 +33,29 @@ namespace Explorer.Stakeholders.Core.UseCases
             return Result.Fail<PersonDto>(FailureCode.NotFound);
 
         }
+        
+
+        public Result<PersonDto> changePenaltyPoints(int id,int quantity)
+        {
+            var person = GetPersonByUserId(id);
+            var personDb = CrudRepository.Get(person.Value.Id);
+
+            if (personDb != null)
+            {
+
+                personDb.PenaltyPoints += quantity;
+
+
+                CrudRepository.Update(personDb);
+
+
+                return MapToDto(personDb);
+            }
+            else
+            {
+
+                return Result.Fail<PersonDto>("Person not found.");
+            }
+        }
     }
 }

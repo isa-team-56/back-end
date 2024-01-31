@@ -1,6 +1,7 @@
 ﻿using Explorer.Stakeholders.Core.Domain;
 using Explorer.Stakeholders.Core.Domain.Users;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Explorer.Stakeholders.Infrastructure.Database;
 
@@ -11,6 +12,7 @@ public class StakeholdersContext : DbContext
     public DbSet<Equipment> Equipment { get; set; }
     public DbSet<Company> Companies { get; set; }
     public DbSet<Appointment> Appointments { get; set; }
+    public DbSet<Reservation> Reservations { get; set; }
 
     public StakeholdersContext(DbContextOptions<StakeholdersContext> options) : base(options) {}
 
@@ -33,4 +35,5 @@ public class StakeholdersContext : DbContext
             .WithOne()
             .HasForeignKey<Person>(s => s.UserId);
     }
+   
 }

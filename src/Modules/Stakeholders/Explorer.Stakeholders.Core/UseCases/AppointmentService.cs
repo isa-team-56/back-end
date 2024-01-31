@@ -3,6 +3,7 @@ using Explorer.BuildingBlocks.Core.UseCases;
 using Explorer.Stakeholders.API.Dtos;
 using Explorer.Stakeholders.API.Public;
 using Explorer.Stakeholders.Core.Domain;
+using Explorer.Stakeholders.Core.Domain.RepositoryInterfaces;
 using FluentResults;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,10 @@ namespace Explorer.Stakeholders.Core.UseCases;
 
 public class AppointmentService : CrudService<AppointmentDto, Appointment>, IAppointmentService
 {
-
-    public AppointmentService(ICrudRepository<Appointment> repository, IMapper mapper) : base(repository, mapper) { }
+  
+    public AppointmentService(ICrudRepository<Appointment> repository, IMapper mapper) : base(repository, mapper) {
+        
+    }
 
 
     public Result<AppointmentDto> ChangeReservedStatus(int id)
@@ -34,20 +37,38 @@ public class AppointmentService : CrudService<AppointmentDto, Appointment>, IApp
     }
    
 
+   /* public Result<List<AppointmentDto>> GetAppointmentsByCompany(CompanyDto company,UserDto user)
+    {
+        var companyId = company.Id;
+        var currentDateTime = DateTime.Now;
+        var canceledAppointmentIds = _reservationService.GetCanceledAppointmentsByUserId((int)user.Id).Value;
+
+        var allAppointmentsResult = CrudRepository.GetPaged(0, 0).Results;
+        var resultAppointments = allAppointmentsResult
+         .Where(appointment => appointment.CompanyId == companyId
+                              && !appointment.IsReserved
+                              && appointment.Start >= currentDateTime
+                              && !canceledAppointmentIds.Contains((int)appointment.Id))
+         .Select(appointment => MapToDto(appointment))
+         .ToList();
+        return resultAppointments;
+    }*/
     public Result<List<AppointmentDto>> GetAppointmentsByCompany(CompanyDto company)
     {
         var companyId = company.Id;
         var currentDateTime = DateTime.Now;
-
+       
         var allAppointmentsResult = CrudRepository.GetPaged(0, 0).Results;
         var resultAppointments = allAppointmentsResult
-              .Where(appointment => appointment.CompanyId == companyId
-                                   && !appointment.IsReserved
-                                   && appointment.Start >= currentDateTime)
-              .Select(appointment => MapToDto(appointment))
-              .ToList();
+         .Where(appointment => appointment.CompanyId == companyId
+                              && !appointment.IsReserved
+                              && appointment.Start >= currentDateTime
+                             )
+         .Select(appointment => MapToDto(appointment))
+         .ToList();
         return resultAppointments;
     }
+
 
 
 

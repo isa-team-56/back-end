@@ -20,6 +20,7 @@ public class Person : Entity
     public string Profession { get; init; }
     public string FirmName { get; init; }
     public int Xp { get; private set; }
+    public int PenaltyPoints { get; set; } = 0;
     public int Level { get; private set; } = 1;
     [NotMapped] 
     public bool CanMakeEncounter => Level >= 10;
@@ -41,7 +42,7 @@ public class Person : Entity
         Validate();
 
     }
-    public Person(long userId, string name, string surname, string? picture, string? bio, string? quote,string city,string country,string phone,string profession,string firmName, int xp, int level)
+    public Person(long userId, string name, string surname, string? picture, string? bio, string? quote,string city,string country,string phone,string profession,string firmName, int xp,int penaltyPoints, int level)
     {
         UserId = userId;
         Name = name;
@@ -55,6 +56,7 @@ public class Person : Entity
         Profession = profession;
         FirmName = firmName;
         Xp = xp;
+        PenaltyPoints = penaltyPoints;
         Level = level;
     }
 

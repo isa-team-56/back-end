@@ -15,5 +15,6 @@ namespace Explorer.Stakeholders.API.Public
         Result<PersonDto> Update(PersonDto profile);
         Result<PersonDto> Get(int id);
         Result<PersonDto> GetPersonByUserId(int id);
+        Result<PersonDto> changePenaltyPoints(int id, int quantity);
     }
 }

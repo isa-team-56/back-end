@@ -10,6 +10,7 @@ public class PersonDto
     public string Bio { get; init; }
     public string Quote { get; init; }
     public int Xp { get; init; }
+    public int PenaltyPoints { get; set; }
     public int Level { get; init; }
     public string City { get; set; }
     public string Country { get; set; }

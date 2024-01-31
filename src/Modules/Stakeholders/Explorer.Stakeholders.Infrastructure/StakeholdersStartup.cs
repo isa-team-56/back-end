@@ -38,6 +38,7 @@ public static class StakeholdersStartup
         services.AddScoped<IEquipmentService, EquipmentService>();
         services.AddScoped<ICompanyService, CompanyService>();
         services.AddScoped<IAppointmentService, AppointmentService>();
+        services.AddScoped<IReservationService, ReservationService>();
 
     }
 
@@ -48,6 +49,7 @@ public static class StakeholdersStartup
 
         services.AddScoped(typeof(ICrudRepository<Company>), typeof(CrudDatabaseRepository<Company, StakeholdersContext>));
         services.AddScoped(typeof(ICrudRepository<Appointment>), typeof(CrudDatabaseRepository<Appointment, StakeholdersContext>));
+        services.AddScoped(typeof(ICrudRepository<Reservation>), typeof(CrudDatabaseRepository<Reservation, StakeholdersContext>));
 
         services.AddScoped<IUserRepository, UserDatabaseRepository>();
         services.AddScoped<IPersonRepository, PersonRepository>();

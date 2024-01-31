@@ -10,7 +10,7 @@ namespace Explorer.Stakeholders.Core.Domain
     public class Appointment : Entity
     {
         public DateTime Start { get; init; }
-        public int Duration { get; init; }
+        public int Duration { get; set; }
         public int CompanyId { get; init; }
         public string AdminName { get; init; }
         public string AdminSurname { get; init; }
